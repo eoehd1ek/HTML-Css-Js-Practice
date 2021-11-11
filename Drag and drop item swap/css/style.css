@@ -1,0 +1,92 @@
+/* reference from "https://www.youtube.com/watch?v=7HUCAYMylCQ" */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #eee;
+  color: #333;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#box-a {
+  background-color: #ff6384;
+}
+#box-b {
+  background-color: #36a2eb;
+}
+#box-c {
+  background-color: #ffce56;
+}
+#box-d {
+  background-color: #9966ff;
+}
+#box-e {
+  background-color: #4bc0c0;
+}
+
+.box {
+  width: 10rem;
+  height: 10rem;
+  border: 3px solid #333;
+  border-radius: 0.5rem;
+  margin: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: bold;
+  user-select: none; /* 드래그를 불가능하게 함 */
+  cursor: move;
+  transition: all 0.5s;
+}
+
+.box:hover {
+  transform: scale(1.1);
+}
+
+.box span {
+  pointer-events: none; /* 이벤트 전파 제거 */
+}
+
+.drag-start {
+  opacity: 0.4;
+}
+
+.box:nth-child(odd).drag-start {
+  transform: rotate(15deg) scale(0.75);
+}
+
+.box:nth-child(even).drag-start {
+  transform: rotate(-15deg) scale(0.75);
+}
+
+.drag-enter {
+  border-style: dashed;
+}
+
+.box:nth-child(odd).drag-enter {
+  transform: rotate(15deg) scale(1.1);
+}
+
+.box:nth-child(even).drag-enter {
+  transform: rotate(-15deg) scale(1.1);
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+  .box {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+    margin: 0.5rem;
+  }
+}
